@@ -1,51 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import toast, { Toaster } from 'react-hot-toast';
 import SoftAurora from './SoftAurora';
 import BorderGlow from './BorderGlow';
 
 const AlterixFinalHero: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    youtubeChannel: '',
-    editingHours: '',
-    biggestFrustration: '',
-    wouldPay: '',
-    fairPrice: '',
-    email: '',
-    wantCall: ''
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      toast.success('🎉 Welcome to the Alterix waitlist!');
-      setFormData({
-        name: '',
-        youtubeChannel: '',
-        editingHours: '',
-        biggestFrustration: '',
-        wouldPay: '',
-        fairPrice: '',
-        email: '',
-        wantCall: ''
-      });
-    } catch (error) {
-      toast.error('Something went wrong. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const problems = [
     {
@@ -504,7 +463,7 @@ const AlterixFinalHero: React.FC = () => {
                         transition={{ duration: 0.6, delay: 0.3 }}
                         className="mt-4 p-4 rounded-xl bg-black/30 border border-white/10"
                       >
-                        <div className="flex items-center space-x-3 mb-3">
+                        <div className="flex flex-wrap items-center gap-3 mb-3">
                           {index === 0 && (
                             <>
                               <div className="flex items-center space-x-2">
@@ -824,167 +783,34 @@ const AlterixFinalHero: React.FC = () => {
             colors={['#c084fc', '#f472b6', '#38bdf8']}
             fillOpacity={0.5}
           >
-            <div style={{ padding: '2em' }}>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-300">
-                    Name <span className="text-red-400 ml-1">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-black/30 border border-white/20 rounded-xl sm:rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-black/40 transition-all duration-300 text-sm sm:text-base"
-                    placeholder="Your name"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-300">
-                    YouTube channel link (or niche if no channel yet)
-                  </label>
-                  <input
-                    type="url"
-                    name="youtubeChannel"
-                    value={formData.youtubeChannel}
-                    onChange={handleInputChange}
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-black/30 border border-white/20 rounded-xl sm:rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-black/40 transition-all duration-300 text-sm sm:text-base"
-                    placeholder="https://youtube.com/yourchannel"
-                  />
-                </div>
-
-                <div className="space-y-2 relative">
-                  <label className="text-sm font-medium text-gray-300">
-                    How many hours/week do you spend editing?
-                  </label>
-                  <div className="relative">
-                    <select
-                      name="editingHours"
-                      value={formData.editingHours}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 pr-10 bg-black/30 border border-white/20 rounded-2xl text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-black/40 transition-all duration-300 appearance-none cursor-pointer"
-                    >
-                      <option value="" className="bg-gray-800">Select an option</option>
-                      <option value="less-2" className="bg-gray-800">Less than 2</option>
-                      <option value="2-5" className="bg-gray-800">2–5</option>
-                      <option value="5-10" className="bg-gray-800">5–10</option>
-                      <option value="10+" className="bg-gray-800">10+</option>
-                    </select>
-                    <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                      <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-300">
-                    What's your biggest editing frustration?
-                  </label>
-                  <textarea
-                    name="biggestFrustration"
-                    value={formData.biggestFrustration}
-                    onChange={handleInputChange}
-                    rows={3}
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-black/30 border border-white/20 rounded-xl sm:rounded-2xl text-white placeholder-gray-500 focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-black/40 transition-all duration-300 resize-none text-sm sm:text-base"
-                    placeholder="Tell us what drives you crazy..."
-                  />
-                </div>
-
-                <div className="space-y-2 relative">
-                  <label className="text-sm font-medium text-gray-300">
-                    Would you pay for a tool that cuts your edit time by 70%?
-                  </label>
-                  <div className="relative">
-                    <select
-                      name="wouldPay"
-                      value={formData.wouldPay}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 pr-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-white/15 transition-all duration-300 appearance-none cursor-pointer"
-                    >
-                      <option value="" className="bg-gray-800">Select an option</option>
-                      <option value="yes" className="bg-gray-800">Yes, definitely</option>
-                      <option value="maybe" className="bg-gray-800">Maybe, depends on price</option>
-                      <option value="not-sure" className="bg-gray-800">Not sure yet</option>
-                    </select>
-                    <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                      <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-2 relative">
-                  <label className="text-sm font-medium text-gray-300">
-                    If yes — what would feel fair per month?
-                  </label>
-                  <div className="relative">
-                    <select
-                      name="fairPrice"
-                      value={formData.fairPrice}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 pr-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-white/15 transition-all duration-300 appearance-none cursor-pointer"
-                    >
-                      <option value="" className="bg-gray-800">Select an option</option>
-                      <option value="$10" className="bg-gray-800">$10</option>
-                      <option value="$20" className="bg-gray-800">$20</option>
-                      <option value="$30" className="bg-gray-800">$30</option>
-                      <option value="$50+" className="bg-gray-800">$50+</option>
-                    </select>
-                    <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                      <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-300">
-                    Email address <span className="text-red-400 ml-1">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-black/30 border border-white/20 rounded-xl sm:rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-black/40 transition-all duration-300 text-sm sm:text-base"
-                    placeholder="your@email.com"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-300">
-                    Want a 1-on-1 call to share your thoughts? (optional)
-                  </label>
-                  <input
-                    type="text"
-                    name="wantCall"
-                    value={formData.wantCall}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-black/40 transition-all duration-300"
-                    placeholder="Calendly link (optional)"
-                  />
+            <div style={{ padding: '2em' }} className="text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="space-y-6"
+              >
+                <div className="text-gray-300 mb-8">
+                  <p className="text-lg mb-4">This form takes 2 minutes to complete.</p>
+                  <p className="text-sm text-gray-400">No spam, just updates when we're ready.</p>
                 </div>
 
                 <motion.button
-                  type="submit"
-                  disabled={isSubmitting}
-                  whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
-                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                  className="relative overflow-hidden w-full rounded-2xl font-semibold transition-all duration-300 py-4 bg-gradient-to-r from-cyan-500 to-magenta-600 text-white shadow-lg shadow-cyan-500/50 hover:shadow-xl hover:shadow-cyan-500/70 hover:from-cyan-600 hover:to-magenta-700 disabled:opacity-50 disabled:cursor-not-allowed text-lg"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => window.open('https://tally.so/r/pbGYkB', '_blank')}
+                  className="relative overflow-hidden w-full rounded-2xl font-semibold transition-all duration-300 py-4 bg-gradient-to-r from-cyan-500 to-magenta-600 text-white shadow-lg shadow-cyan-500/50 hover:shadow-xl hover:shadow-cyan-500/70 hover:from-cyan-600 hover:to-magenta-700 text-lg"
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/20 pointer-events-none" />
                   <span className="relative z-10">
-                    {isSubmitting ? 'JOINING WAITLIST...' : 'JOIN THE WAITLIST →'}
+                    JOIN THE WAITLIST →
                   </span>
                 </motion.button>
-              </form>
+
+                <div className="text-sm text-gray-500">
+                  Clicking above will open the waitlist form in a new tab
+                </div>
+              </motion.div>
             </div>
           </BorderGlow>
         </div>

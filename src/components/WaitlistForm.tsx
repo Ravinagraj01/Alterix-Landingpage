@@ -21,14 +21,30 @@ const WaitlistForm: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission (replace with actual Tally integration)
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      toast.success('🎉 Welcome to the waitlist! We\'ll be in touch soon.');
+      const baseUrl = 'https://tally.so/r/pbGYkB';
+      const params = new URLSearchParams();
+      
+      // Add form data as URL parameters to pre-fill the Tally form
+      if (formData.name) params.append('name', formData.name);
+      if (formData.youtubeChannel) params.append('youtubeChannel', formData.youtubeChannel);
+      if (formData.editingHours) params.append('editingHours', formData.editingHours);
+      if (formData.biggestFrustration) params.append('biggestFrustration', formData.biggestFrustration);
+      if (formData.wouldPay) params.append('wouldPay', formData.wouldPay);
+      if (formData.fairPrice) params.append('fairPrice', formData.fairPrice);
+      if (formData.email) params.append('email', formData.email);
+      if (formData.wantCall) params.append('wantCall', formData.wantCall);
+      
+      // Open Tally form with pre-filled data
+      const formUrl = params.toString() ? `${baseUrl}?${params.toString()}` : baseUrl;
+      window.open(formUrl, '_blank');
+      
+      // Show success message and reset form
+      toast.success('🎉 Opening waitlist form... Please complete your submission there.');
       setFormData({
         name: '',
         youtubeChannel: '',
@@ -99,15 +115,16 @@ const WaitlistForm: React.FC = () => {
             {/* YouTube Channel */}
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                YouTube channel link (or niche if no channel yet)
+                YouTube channel name (or niche if no channel yet)
               </label>
               <input
-                type="url"
+                type="text"
                 name="youtubeChannel"
                 value={formData.youtubeChannel}
                 onChange={handleInputChange}
+                required
                 className="w-full px-4 py-3 bg-medium-gray border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:border-neon-yellow focus:outline-none transition-colors"
-                placeholder="https://youtube.com/yourchannel"
+                placeholder="your channel name or niche"
               />
             </div>
 
@@ -203,14 +220,16 @@ const WaitlistForm: React.FC = () => {
               <label className="block text-sm font-medium text-gray-300 mb-2">
                 Want a 1-on-1 call to share your thoughts? (optional)
               </label>
-              <input
-                type="text"
+              <select
                 name="wantCall"
                 value={formData.wantCall}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-medium-gray border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:border-neon-yellow focus:outline-none transition-colors"
-                placeholder="Calendly link (optional)"
-              />
+                className="w-full px-4 py-3 bg-medium-gray border border-gray-600 rounded-lg text-white focus:border-neon-yellow focus:outline-none transition-colors"
+              >
+                <option value="">Select an option</option>
+                <option value="yes">Yes, happy to help</option>
+                <option value="no">No, form is enough</option>
+              </select>
             </div>
 
             {/* Submit Button */}
