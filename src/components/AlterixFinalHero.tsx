@@ -107,15 +107,17 @@ const AlterixFinalHero: React.FC = () => {
         <nav className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">🎬</span>
-            </div>
+            <img 
+              src="/logo.png" 
+              alt="Alterix Logo" 
+              className="w-8 h-8 rounded-lg object-cover"
+            />
             <span className="text-white font-semibold text-xl">Alterix</span>
           </div>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            {['How It Works', 'Pricing', 'Testimonials', 'FAQ'].map((item) => (
+            {['How It Works', 'Who This Is For', 'Waitlist'].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(' ', '-')}`}
@@ -213,7 +215,7 @@ const AlterixFinalHero: React.FC = () => {
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
                 YOUR EDITING STYLE.
               </span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-magenta-400 to-pink-400">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-400">
                 CLONED. PERFECTED. AUTOMATED.
               </span>
             </motion.h1>
@@ -241,7 +243,7 @@ const AlterixFinalHero: React.FC = () => {
                 className="relative overflow-hidden rounded-2xl font-semibold transition-all duration-300 px-12 py-4 bg-gradient-to-r from-cyan-500 to-magenta-600 text-white shadow-lg shadow-cyan-500/50 hover:shadow-xl hover:shadow-cyan-500/70 hover:from-cyan-600 hover:to-magenta-700 text-xl"
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/30 pointer-events-none" />
-                <span className="relative z-10">I WANT EARLY ACCESS →</span>
+                <span className="relative z-10">NEED EARLY ACCESS ?</span>
               </motion.button>
             </motion.div>
 
@@ -251,7 +253,7 @@ const AlterixFinalHero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-gray-300 text-lg"
             >
-              Join <span className="text-cyan-400 font-bold">000</span> creators on the waitlist
+              Join creators on the waitlist
             </motion.p>
           </div>
         </div>
@@ -266,7 +268,7 @@ const AlterixFinalHero: React.FC = () => {
             className="text-4xl md:text-5xl font-black text-center mb-16"
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400">
-              THE <span className="text-white font-black">BRUTAL</span> TRUTH
+              THE BRUTAL TRUTH
             </span>
           </motion.h2>
 
@@ -305,27 +307,26 @@ const AlterixFinalHero: React.FC = () => {
             className="text-4xl md:text-5xl font-black text-center mb-16"
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-magenta-400">
-              YOUR <span className="text-white font-black">EDITING</span> STYLE.
+              YOUR EDITING STYLE.
             </span>
           </motion.h2>
 
           <div className="space-y-8">
             {steps.map((step, index) => (
-              <motion.div
+              <BorderGlow
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                whileHover={{ 
-                  scale: 1.02,
-                  backgroundColor: 'rgba(0, 255, 255, 0.12)',
-                  borderColor: 'rgba(255, 0, 255, 0.4)'
-                }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-                className="relative overflow-hidden p-6 rounded-2xl bg-white/3 backdrop-blur-sm border border-white/10 shadow-lg"
+                edgeSensitivity={30}
+                glowColor="40 80 80"
+                backgroundColor="#060010"
+                borderRadius={28}
+                glowRadius={40}
+                glowIntensity={1}
+                coneSpread={25}
+                animated={false}
+                colors={['#c084fc', '#f472b6', '#38bdf8']}
+                fillOpacity={0.5}
               >
-                <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
-                <div className="relative z-10">
+                <div style={{ padding: '1.5em' }}>
                   <div className="flex items-start space-x-4">
                     <motion.div
                       initial={{ scale: 0, rotate: -180 }}
@@ -342,84 +343,223 @@ const AlterixFinalHero: React.FC = () => {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ duration: 0.6, delay: 0.3 }}
-                        className="mt-4 p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10"
+                        className="mt-4 p-4 rounded-xl bg-black/30 border border-white/10"
                       >
                         <div className="flex items-center space-x-3 mb-3">
-                          <div className="flex items-center space-x-2">
-                            <motion.div
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              whileInView={{ opacity: 1, scale: 1 }}
-                              transition={{ duration: 0.5 }}
-                              className="w-12 h-12 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-full flex items-center justify-center"
-                            >
-                              <span className="text-white font-bold text-lg">✨</span>
-                            </motion.div>
-                            <span className="text-gray-200 text-sm">AI-Powered</span>
-                          </div>
-                          <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                            className="flex items-center space-x-2"
-                          >
-                            <motion.div
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              whileInView={{ opacity: 1, scale: 1 }}
-                              transition={{ duration: 0.5 }}
-                              className="w-12 h-12 bg-gradient-to-r from-magenta-500/20 to-pink-500/20 rounded-full flex items-center justify-center"
-                            >
-                              <span className="text-white font-bold text-lg">⚡</span>
-                            </motion.div>
-                            <span className="text-gray-200 text-sm">Lightning Fast</span>
-                          </motion.div>
-                          <motion.div
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8, delay: 0.5 }}
-                            className="flex items-center space-x-2"
-                            className="w-12 h-12 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-full flex items-center justify-center"
-                          >
-                            <span className="text-white font-bold text-lg">🎬</span>
-                          </motion.div>
-                          <span className="text-gray-200 text-sm">Smart</span>
+                          {index === 0 && (
+                            <>
+                              <div className="flex items-center space-x-2">
+                                <motion.div
+                                  initial={{ opacity: 0, scale: 0.8 }}
+                                  whileInView={{ opacity: 1, scale: 1 }}
+                                  transition={{ duration: 0.5 }}
+                                  className="w-12 h-12 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-full flex items-center justify-center"
+                                >
+                                  <span className="text-white font-bold text-lg">🧠</span>
+                                </motion.div>
+                                <span className="text-gray-200 text-sm">Style Learning</span>
+                              </div>
+                              <motion.div
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8, delay: 0.4 }}
+                                className="flex items-center space-x-2"
+                              >
+                                <motion.div
+                                  initial={{ opacity: 0, scale: 0.8 }}
+                                  whileInView={{ opacity: 1, scale: 1 }}
+                                  transition={{ duration: 0.5 }}
+                                  className="w-12 h-12 bg-gradient-to-r from-magenta-500/20 to-pink-500/20 rounded-full flex items-center justify-center"
+                                >
+                                  <span className="text-white font-bold text-lg">📊</span>
+                                </motion.div>
+                                <span className="text-gray-200 text-sm">Pattern Analysis</span>
+                              </motion.div>
+                              <motion.div
+                                initial={{ opacity: 0, x: 20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8, delay: 0.5 }}
+                                className="w-12 h-12 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-full flex items-center justify-center"
+                              >
+                                <span className="text-white font-bold text-lg">🎯</span>
+                              </motion.div>
+                              <span className="text-gray-200 text-sm">Precision</span>
+                            </>
+                          )}
+                          {index === 1 && (
+                            <>
+                              <div className="flex items-center space-x-2">
+                                <motion.div
+                                  initial={{ opacity: 0, scale: 0.8 }}
+                                  whileInView={{ opacity: 1, scale: 1 }}
+                                  transition={{ duration: 0.5 }}
+                                  className="w-12 h-12 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-full flex items-center justify-center"
+                                >
+                                  <span className="text-white font-bold text-lg">⚡</span>
+                                </motion.div>
+                                <span className="text-gray-200 text-sm">Smart Cut</span>
+                              </div>
+                              <motion.div
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8, delay: 0.4 }}
+                                className="flex items-center space-x-2"
+                              >
+                                <motion.div
+                                  initial={{ opacity: 0, scale: 0.8 }}
+                                  whileInView={{ opacity: 1, scale: 1 }}
+                                  transition={{ duration: 0.5 }}
+                                  className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-full flex items-center justify-center overflow-hidden"
+                                >
+                                  <img 
+                                    src="/logo.png" 
+                                    alt="Auto Edit" 
+                                    className="w-8 h-8 object-cover"
+                                  />
+                                </motion.div>
+                                <span className="text-gray-200 text-sm">Auto Edit</span>
+                              </motion.div>
+                              <motion.div
+                                initial={{ opacity: 0, x: 20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8, delay: 0.5 }}
+                                className="w-12 h-12 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full flex items-center justify-center"
+                              >
+                                <span className="text-white font-bold text-lg">🎵</span>
+                              </motion.div>
+                              <span className="text-gray-200 text-sm">Beat Sync</span>
+                            </>
+                          )}
+                          {index === 2 && (
+                            <>
+                              <div className="flex items-center space-x-2">
+                                <motion.div
+                                  initial={{ opacity: 0, scale: 0.8 }}
+                                  whileInView={{ opacity: 1, scale: 1 }}
+                                  transition={{ duration: 0.5 }}
+                                  className="w-12 h-12 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-full flex items-center justify-center"
+                                >
+                                  <span className="text-white font-bold text-lg">✨</span>
+                                </motion.div>
+                                <span className="text-gray-200 text-sm">Polish</span>
+                              </div>
+                              <motion.div
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8, delay: 0.4 }}
+                                className="flex items-center space-x-2"
+                              >
+                                <motion.div
+                                  initial={{ opacity: 0, scale: 0.8 }}
+                                  whileInView={{ opacity: 1, scale: 1 }}
+                                  transition={{ duration: 0.5 }}
+                                  className="w-12 h-12 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-full flex items-center justify-center"
+                                >
+                                  <span className="text-white font-bold text-lg">🚀</span>
+                                </motion.div>
+                                <span className="text-gray-200 text-sm">Export</span>
+                              </motion.div>
+                              <motion.div
+                                initial={{ opacity: 0, x: 20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8, delay: 0.5 }}
+                                className="w-12 h-12 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full flex items-center justify-center"
+                              >
+                                <span className="text-white font-bold text-lg">⏱️</span>
+                              </motion.div>
+                              <span className="text-gray-200 text-sm">Time Saved</span>
+                            </>
+                          )}
                         </div>
                       </motion.div>
-                      <motion.p
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.6 }}
-                        className="text-cyan-300 text-sm leading-relaxed"
-                      >
-                        <span className="font-semibold text-white">✨ Revolutionary AI algorithms</span> analyze your unique editing patterns and create personalized templates that adapt to your style in real-time.
-                      </motion.p>
-                      <motion.p
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.7 }}
-                        className="text-magenta-300 text-sm leading-relaxed"
-                      >
-                        <span className="font-semibold text-white">⚡ Neural processing</span> renders edits 10x faster than traditional methods, learning from each cut to improve future suggestions.
-                      </motion.p>
-                      <motion.p
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.8 }}
-                        className="text-blue-300 text-sm leading-relaxed"
-                      >
-                        <span className="font-semibold text-white">🎯 One-click perfection</span> applies cinematic color grading, audio sync, and professional transitions automatically.
-                      </motion.p>
-                      <motion.p
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.9 }}
-                        className="text-green-300 text-sm leading-relaxed"
-                      >
-                        <span className="font-semibold text-white">🎬 Custom workflows</span> create your own editing shortcuts and macros for complex sequences.
-                      </motion.p>
-                    </motion.div>
+                      {index === 0 && (
+                        <>
+                          <motion.p
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.6 }}
+                            className="text-cyan-300 text-sm leading-relaxed"
+                          >
+                            <span className="font-semibold text-white">🧠 Deep learning</span> studies your editing fingerprint - cuts, transitions, pacing, and music sync patterns.
+                          </motion.p>
+                          <motion.p
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.7 }}
+                            className="text-magenta-300 text-sm leading-relaxed"
+                          >
+                            <span className="font-semibold text-white">📊 Pattern recognition</span> identifies your unique style elements and creates a personalized editing DNA profile.
+                          </motion.p>
+                          <motion.p
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.8 }}
+                            className="text-blue-300 text-sm leading-relaxed"
+                          >
+                            <span className="font-semibold text-white">🎯 Style accuracy</span> ensures every future edit matches your creative vision automatically.
+                          </motion.p>
+                        </>
+                      )}
+                      {index === 1 && (
+                        <>
+                          <motion.p
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.6 }}
+                            className="text-orange-300 text-sm leading-relaxed"
+                          >
+                            <span className="font-semibold text-white">⚡ Intelligent cutting</span> automatically selects the best takes and removes dead air using your timing preferences.
+                          </motion.p>
+                          <motion.p
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.7 }}
+                            className="text-blue-300 text-sm leading-relaxed"
+                          >
+                            <span className="font-semibold text-white">🎬 Style application</span> applies your signature transitions, effects, and pacing to raw footage instantly.
+                          </motion.p>
+                          <motion.p
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.8 }}
+                            className="text-purple-300 text-sm leading-relaxed"
+                          >
+                            <span className="font-semibold text-white">🎵 Beat synchronization</span> aligns cuts and effects to music rhythm automatically.
+                          </motion.p>
+                        </>
+                      )}
+                      {index === 2 && (
+                        <>
+                          <motion.p
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.6 }}
+                            className="text-green-300 text-sm leading-relaxed"
+                          >
+                            <span className="font-semibold text-white">✨ Final polish</span> applies color grading, audio cleanup, and professional finishing touches.
+                          </motion.p>
+                          <motion.p
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.7 }}
+                            className="text-yellow-300 text-sm leading-relaxed"
+                          >
+                            <span className="font-semibold text-white">🚀 One-click export</span> renders in multiple formats optimized for your platform.
+                          </motion.p>
+                          <motion.p
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.8 }}
+                            className="text-cyan-300 text-sm leading-relaxed"
+                          >
+                            <span className="font-semibold text-white">⏱️ 95% time saved</span> - what used to take 8 hours now takes 30 minutes.
+                          </motion.p>
+                        </>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </BorderGlow>
             ))}
           </div>
         </div>
@@ -434,27 +574,26 @@ const AlterixFinalHero: React.FC = () => {
             className="text-4xl md:text-5xl font-black text-center mb-16"
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-400 to-cyan-400">
-              WHO <span className="text-white font-black">THIS IS</span> FOR
+              WHO THIS IS FOR
             </span>
           </motion.h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {creators.map((creator, index) => (
-              <motion.div
+              <BorderGlow
                 key={index}
-                initial={{ opacity: 0, scale: 0.8, rotateY: -15 }}
-                whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
-                viewport={{ once: true }}
-                whileHover={{ 
-                  scale: 1.05, y: -5,
-                  backgroundColor: 'rgba(0, 255, 255, 0.12)',
-                  borderColor: 'rgba(0, 255, 255, 0.4)'
-                }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="relative overflow-hidden p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 shadow-lg"
+                edgeSensitivity={30}
+                glowColor="40 80 80"
+                backgroundColor="#060010"
+                borderRadius={28}
+                glowRadius={40}
+                glowIntensity={1}
+                coneSpread={25}
+                animated={false}
+                colors={['#c084fc', '#f472b6', '#38bdf8']}
+                fillOpacity={0.5}
               >
-                <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
-                <div className="relative z-10">
+                <div style={{ padding: '1.5em' }}>
                   <motion.div
                     initial={{ opacity: 0, scale: 0.5 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -485,7 +624,7 @@ const AlterixFinalHero: React.FC = () => {
                     <span className="text-green-300 text-sm font-medium">Perfect Match</span>
                   </motion.div>
                 </div>
-              </motion.div>
+              </BorderGlow>
             ))}
           </div>
         </div>
@@ -538,7 +677,7 @@ const AlterixFinalHero: React.FC = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-white/15 transition-all duration-300"
+                    className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-black/40 transition-all duration-300"
                     placeholder="Your name"
                   />
                 </div>
@@ -552,7 +691,7 @@ const AlterixFinalHero: React.FC = () => {
                     name="youtubeChannel"
                     value={formData.youtubeChannel}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-white/15 transition-all duration-300"
+                    className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-black/40 transition-all duration-300"
                     placeholder="https://youtube.com/yourchannel"
                   />
                 </div>
@@ -566,7 +705,7 @@ const AlterixFinalHero: React.FC = () => {
                       name="editingHours"
                       value={formData.editingHours}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 pr-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-white/15 transition-all duration-300 appearance-none cursor-pointer"
+                      className="w-full px-4 py-3 pr-10 bg-black/30 border border-white/20 rounded-2xl text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-black/40 transition-all duration-300 appearance-none cursor-pointer"
                     >
                       <option value="" className="bg-gray-800">Select an option</option>
                       <option value="less-2" className="bg-gray-800">Less than 2</option>
@@ -591,7 +730,7 @@ const AlterixFinalHero: React.FC = () => {
                     value={formData.biggestFrustration}
                     onChange={handleInputChange}
                     rows={3}
-                    className="w-full px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-white placeholder-gray-500 focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-white/15 transition-all duration-300 resize-none"
+                    className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-2xl text-white placeholder-gray-500 focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-black/40 transition-all duration-300 resize-none"
                     placeholder="Tell us what drives you crazy..."
                   />
                 </div>
@@ -655,7 +794,7 @@ const AlterixFinalHero: React.FC = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-white/15 transition-all duration-300"
+                    className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-black/40 transition-all duration-300"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -669,7 +808,7 @@ const AlterixFinalHero: React.FC = () => {
                     name="wantCall"
                     value={formData.wantCall}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-white/15 transition-all duration-300"
+                    className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-black/40 transition-all duration-300"
                     placeholder="Calendly link (optional)"
                   />
                 </div>
@@ -708,21 +847,24 @@ const AlterixFinalHero: React.FC = () => {
             <div style={{ padding: '2em' }}>
               <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
                 <div className="flex-shrink-0">
-                  <div className="w-24 h-24 bg-gradient-to-br from-cyan-500 to-magenta-600 rounded-full flex items-center justify-center">
-                    <span className="text-3xl">🎬</span>
+                  <div className="w-26 h-26 bg-gradient-to-br from-cyan-500 to-magenta-600 rounded-full flex items-center justify-center overflow-hidden">
+                    <img 
+                      src="/logo.png" 
+                      alt="Ravi - Founder" 
+                      className="w-14 h-14 object-cover"
+                    />
                   </div>
                 </div>
 
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-white mb-4">Hey — I'm Alex</h3>
+                  <h3 className="text-2xl font-bold text-white mb-4">Hey — I'm Ravi</h3>
                   <div className="space-y-4 text-gray-300">
                     <p>I edit videos too and I know how draining it is. Spending 8 hours on a 10-minute video, explaining my style to editors who don't get it, watching my creative energy die in the timeline.</p>
                     <p>I'm building this because I couldn't find a tool that actually understood <span className="text-cyan-400 font-bold">my style</span>. Not generic templates, not one-size-fits-all cuts — but <span className="text-magenta-400 font-bold">my edit</span>.</p>
                     <p>If you've felt the same, I'd love your honest input. This form takes 2 minutes, and your feedback will shape how we build this.</p>
                   </div>
-                  <div className="mt-6 flex flex-col sm:flex-row gap-4">
-                    <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300 transition-colors">@yourusername on Twitter/X</a>
-                    <a href="mailto:alex@alterix.io" className="text-magenta-400 hover:text-magenta-300 transition-colors">alex@alterix.io</a>
+                  <div className="mt-6">
+                    <a href="mailto:alterix.in@gmail.com" className="text-magenta-400 hover:text-magenta-300 transition-colors">Email: alterix.in@gmail.com</a>
                   </div>
                 </div>
               </div>

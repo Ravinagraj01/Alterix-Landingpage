@@ -35,7 +35,7 @@ const FoundersNote: React.FC = () => {
                 viewport={{ once: true }}
                 className="text-2xl font-bold text-white mb-4"
               >
-                Hey — I'm Alex
+                Hey — I'm Ravi
               </motion.h3>
               
               <motion.div
