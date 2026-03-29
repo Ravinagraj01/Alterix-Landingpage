@@ -103,37 +103,55 @@ const AlterixFinalHero: React.FC = () => {
       <div className="absolute inset-0 bg-black" />
 
       {/* Header Navigation */}
-      <header className="relative z-20 px-8 py-6">
+      <header className="relative z-20 px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
         <nav className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <img 
               src="/logo.png" 
               alt="Alterix Logo" 
-              className="w-8 h-8 rounded-lg object-cover"
+              className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg object-cover"
             />
-            <span className="text-white font-semibold text-xl">Alterix</span>
+            <span className="text-white font-semibold text-lg sm:text-xl">Alterix</span>
           </div>
 
           {/* Navigation Links */}
-          <div className="hidden md:flex items-center space-x-8">
-            {['How It Works', 'Who This Is For', 'Waitlist'].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase().replace(' ', '-')}`}
-                className="text-gray-300 hover:text-white transition-colors duration-200"
-              >
-                {item}
-              </a>
-            ))}
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
+            <a
+              href="#how-it-works"
+              className="text-gray-300 hover:text-white transition-colors duration-200 text-sm lg:text-base"
+            >
+              How It Works
+            </a>
+            <a
+              href="#who-this-is-for"
+              className="text-gray-300 hover:text-white transition-colors duration-200 text-sm lg:text-base"
+            >
+              Who This Is For
+            </a>
+            <a
+              href="#waitlist-form"
+              className="text-gray-300 hover:text-white transition-colors duration-200 text-sm lg:text-base"
+            >
+              Waitlist
+            </a>
+          </div>
+          
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button className="text-gray-300 hover:text-white">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
           </div>
         </nav>
       </header>
 
       {/* Main Content */}
-      <div className="relative z-10 px-8 py-12">
+      <div className="relative z-10 px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* Hero Section */}
-        <div className="max-w-6xl mx-auto text-center mb-20 relative">
+        <div className="max-w-6xl mx-auto text-center mb-12 sm:mb-16 lg:mb-20 relative">
           {/* Soft Aurora Background - Full screen coverage */}
           <div className="fixed inset-0 left-0 top-0 w-full h-full -z-10">
             <div className="absolute inset-0">
@@ -210,7 +228,7 @@ const AlterixFinalHero: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-5xl md:text-7xl font-black mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6"
             >
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
                 YOUR EDITING STYLE.
@@ -224,7 +242,7 @@ const AlterixFinalHero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-xl md:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto"
+              className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 sm:mb-10 lg:mb-12 max-w-3xl mx-auto px-4"
             >
               Upload your raw footage. We study how you edit. Then we do it for you — your cuts, your pacing, your vibe.
             </motion.p>
@@ -234,13 +252,13 @@ const AlterixFinalHero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="mb-8"
+              className="mb-6 sm:mb-8"
             >
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => document.getElementById('waitlist-form')?.scrollIntoView({ behavior: 'smooth' })}
-                className="relative overflow-hidden rounded-2xl font-semibold transition-all duration-300 px-12 py-4 bg-gradient-to-r from-cyan-500 to-magenta-600 text-white shadow-lg shadow-cyan-500/50 hover:shadow-xl hover:shadow-cyan-500/70 hover:from-cyan-600 hover:to-magenta-700 text-xl"
+                className="relative overflow-hidden rounded-xl sm:rounded-2xl font-semibold transition-all duration-300 px-6 sm:px-8 lg:px-12 py-3 sm:py-4 bg-gradient-to-r from-cyan-500 to-magenta-600 text-white shadow-lg shadow-cyan-500/50 hover:shadow-xl hover:shadow-cyan-500/70 hover:from-cyan-600 hover:to-magenta-700 text-base sm:text-lg lg:text-xl"
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/30 pointer-events-none" />
                 <span className="relative z-10">NEED EARLY ACCESS ?</span>
@@ -251,7 +269,7 @@ const AlterixFinalHero: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-gray-300 text-lg"
+              className="text-gray-300 text-base sm:text-lg"
             >
               Join creators on the waitlist
             </motion.p>
@@ -259,20 +277,20 @@ const AlterixFinalHero: React.FC = () => {
         </div>
 
         {/* Problem Section */}
-        <div id="problem" className="max-w-6xl mx-auto mb-20">
+        <div id="problem" className="max-w-6xl mx-auto mb-12 sm:mb-16 lg:mb-20 px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-black text-center mb-16"
+            className="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-8 sm:mb-12 lg:mb-16"
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400">
               THE BRUTAL TRUTH
             </span>
           </motion.h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {problems.map((problem, index) => (
               <BorderGlow
                 key={index}
@@ -298,20 +316,20 @@ const AlterixFinalHero: React.FC = () => {
         </div>
 
         {/* How It Works - Enhanced */}
-        <div id="how-it-works" className="max-w-4xl mx-auto mb-20">
+        <div id="how-it-works" className="max-w-4xl mx-auto mb-12 sm:mb-16 lg:mb-20 px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-black text-center mb-16"
+            className="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-8 sm:mb-12 lg:mb-16"
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-magenta-400">
               YOUR EDITING STYLE.
             </span>
           </motion.h2>
 
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {steps.map((step, index) => (
               <BorderGlow
                 key={index}
@@ -565,20 +583,20 @@ const AlterixFinalHero: React.FC = () => {
         </div>
 
         {/* Who This Is For */}
-        <div id="who-this-is-for" className="max-w-6xl mx-auto mb-20">
+        <div id="who-this-is-for" className="max-w-6xl mx-auto mb-12 sm:mb-16 lg:mb-20 px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-black text-center mb-16"
+            className="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-8 sm:mb-12 lg:mb-16"
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-400 to-cyan-400">
               WHO THIS IS FOR
             </span>
           </motion.h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {creators.map((creator, index) => (
               <BorderGlow
                 key={index}
@@ -630,13 +648,13 @@ const AlterixFinalHero: React.FC = () => {
         </div>
 
         {/* Waitlist Form */}
-        <div id="waitlist-form" className="max-w-2xl mx-auto mb-20">
+        <div id="waitlist-form" className="max-w-2xl mx-auto mb-12 sm:mb-16 lg:mb-20 px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-black text-center mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-4 sm:mb-6"
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
               JOIN THE WAITLIST
@@ -648,7 +666,7 @@ const AlterixFinalHero: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-center text-gray-400 mb-12"
+            className="text-center text-gray-400 mb-8 sm:mb-12 text-sm sm:text-base"
           >
             Be the first to know when we launch. Early access pricing guaranteed.
           </motion.p>
@@ -677,7 +695,7 @@ const AlterixFinalHero: React.FC = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-black/40 transition-all duration-300"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-black/30 border border-white/20 rounded-xl sm:rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-black/40 transition-all duration-300 text-sm sm:text-base"
                     placeholder="Your name"
                   />
                 </div>
@@ -691,7 +709,7 @@ const AlterixFinalHero: React.FC = () => {
                     name="youtubeChannel"
                     value={formData.youtubeChannel}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-black/40 transition-all duration-300"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-black/30 border border-white/20 rounded-xl sm:rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-black/40 transition-all duration-300 text-sm sm:text-base"
                     placeholder="https://youtube.com/yourchannel"
                   />
                 </div>
@@ -730,7 +748,7 @@ const AlterixFinalHero: React.FC = () => {
                     value={formData.biggestFrustration}
                     onChange={handleInputChange}
                     rows={3}
-                    className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-2xl text-white placeholder-gray-500 focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-black/40 transition-all duration-300 resize-none"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-black/30 border border-white/20 rounded-xl sm:rounded-2xl text-white placeholder-gray-500 focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-black/40 transition-all duration-300 resize-none text-sm sm:text-base"
                     placeholder="Tell us what drives you crazy..."
                   />
                 </div>
@@ -794,7 +812,7 @@ const AlterixFinalHero: React.FC = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-black/40 transition-all duration-300"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-black/30 border border-white/20 rounded-xl sm:rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-400 focus:bg-black/40 transition-all duration-300 text-sm sm:text-base"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -831,7 +849,7 @@ const AlterixFinalHero: React.FC = () => {
         </div>
 
         {/* Founder's Note */}
-        <div id="founders-note" className="max-w-4xl mx-auto mb-20">
+        <div id="founders-note" className="max-w-4xl mx-auto mb-12 sm:mb-16 lg:mb-20 px-4 sm:px-6 lg:px-8">
           <BorderGlow
             edgeSensitivity={30}
             glowColor="40 80 80"
