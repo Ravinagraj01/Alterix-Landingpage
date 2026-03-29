@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import toast, { Toaster } from 'react-hot-toast';
 import SoftAurora from './SoftAurora';
 import BorderGlow from './BorderGlow';
 
@@ -56,8 +55,6 @@ const AlterixFinalHero: React.FC = () => {
 
   return (
     <section className="relative min-h-screen bg-black overflow-hidden">
-      <Toaster position="top-right" />
-      
       {/* Background gradient */}
       <div className="absolute inset-0 bg-black" />
 
