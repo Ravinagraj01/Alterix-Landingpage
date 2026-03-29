@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #0a0a0a;
+    color: #ffffff;
+    overflow-x: hidden;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .glitch-text {
+    position: relative;
+    text-shadow: 
+      2px 0 #FDE047,
+      -2px 0 #EC4899;
+    animation: glitch 2s infinite;
+  }
+  
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .glitch-text::before {
+    animation: glitch-1 0.5s infinite;
+    color: #FDE047;
+    z-index: -1;
+  }
+  
+  .glitch-text::after {
+    animation: glitch-2 0.5s infinite;
+    color: #EC4899;
+    z-index: -2;
+  }
+  
+  @keyframes glitch-1 {
+    0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+    20% { clip-path: inset(20% 0 30% 0); transform: translate(-2px, 2px); }
+    40% { clip-path: inset(50% 0 20% 0); transform: translate(2px, -2px); }
+    60% { clip-path: inset(10% 0 60% 0); transform: translate(-2px, 1px); }
+    80% { clip-path: inset(80% 0 5% 0); transform: translate(1px, -1px); }
+  }
+  
+  @keyframes glitch-2 {
+    0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+    20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -1px); }
+    40% { clip-path: inset(20% 0 50% 0); transform: translate(-2px, 2px); }
+    60% { clip-path: inset(30% 0 40% 0); transform: translate(1px, -2px); }
+    80% { clip-path: inset(5% 0 80% 0); transform: translate(-1px, 1px); }
+  }
+  
+  .film-grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.15;
+    z-index: 50;
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+    animation: grain 0.5s steps(1) infinite;
+  }
+  
+  @keyframes grain {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-1px, -1px); }
+    20% { transform: translate(1px, 0); }
+    30% { transform: translate(-1px, 1px); }
+    40% { transform: translate(1px, -1px); }
+    50% { transform: translate(-1px, 0); }
+    60% { transform: translate(1px, 1px); }
+    70% { transform: translate(0, -1px); }
+    80% { transform: translate(-1px, -1px); }
+    90% { transform: translate(0, 1px); }
+  }
+  
+  .aurora-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #1a1a1a, #2a1a3a, #1a2a3a, #1a1a2a);
+    background-size: 400% 400%;
+    animation: aurora 15s ease-in-out infinite;
+    z-index: -1;
+  }
+  
+  .timeline-scrubber {
+    background: linear-gradient(90deg, 
+      #1a1a1a 0%, 
+      #2a2a2a 25%, 
+      #3a3a3a 50%, 
+      #2a2a2a 75%, 
+      #1a1a1a 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .timeline-scrubber::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(253, 224, 71, 0.3), 
+      transparent);
+    animation: scrub 3s linear infinite;
+  }
+  
+  @keyframes scrub {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+  
+  .neon-border {
+    border: 2px solid transparent;
+    background: linear-gradient(#1a1a1a, #1a1a1a) padding-box,
+                linear-gradient(45deg, #FDE047, #EC4899) border-box;
+  }
+  
+  .text-neon {
+    text-shadow: 
+      0 0 10px rgba(253, 224, 71, 0.8),
+      0 0 20px rgba(253, 224, 71, 0.6),
+      0 0 30px rgba(253, 224, 71, 0.4);
+  }
+
+  /* Glassmorphism fallbacks */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Support for browsers that don't support backdrop-filter */
+  @supports not (backdrop-filter: blur(20px)) {
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
