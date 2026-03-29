@@ -102,6 +102,95 @@ const AlterixFinalHero: React.FC = () => {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-black" />
 
+      {/* Free-roaming aurora particles throughout the page */}
+      <div className="fixed inset-0 pointer-events-none z-5">
+        {[...Array(12)].map((_, i) => (
+          <motion.div
+            key={`aurora-particle-${i}`}
+            className="absolute w-4 h-4 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              background: i % 3 === 0 
+                ? 'radial-gradient(circle, rgba(0,255,255,0.8) 0%, rgba(0,255,255,0) 70%)'
+                : i % 3 === 1
+                ? 'radial-gradient(circle, rgba(255,0,255,0.8) 0%, rgba(255,0,255,0) 70%)'
+                : 'radial-gradient(circle, rgba(147,51,234,0.8) 0%, rgba(147,51,234,0) 70%)',
+            }}
+            animate={{
+              x: [0, Math.random() * 400 - 200, Math.random() * 400 - 200, 0],
+              y: [0, Math.random() * 400 - 200, Math.random() * 400 - 200, 0],
+              scale: [0.5, 1.5, 0.8, 0.5],
+              opacity: [0.2, 0.8, 0.4, 0.2],
+            }}
+            transition={{
+              duration: 15 + Math.random() * 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: Math.random() * 5,
+            }}
+          />
+        ))}
+        
+        {/* Floating energy streams */}
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={`energy-stream-${i}`}
+            className="absolute h-px"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              width: `${50 + Math.random() * 100}px`,
+              background: i % 2 === 0
+                ? 'linear-gradient(90deg, transparent, rgba(0,255,255,0.6), transparent)'
+                : 'linear-gradient(90deg, transparent, rgba(255,0,255,0.6), transparent)',
+              transform: `rotate(${Math.random() * 360}deg)`,
+            }}
+            animate={{
+              x: [0, Math.random() * 200 - 100, Math.random() * 200 - 100, 0],
+              y: [0, Math.random() * 200 - 100, Math.random() * 200 - 100, 0],
+              opacity: [0, 0.6, 0.3, 0],
+              scale: [0.5, 1.2, 0.8, 0.5],
+            }}
+            transition={{
+              duration: 20 + Math.random() * 15,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: Math.random() * 8,
+            }}
+          />
+        ))}
+        
+        {/* Slow-moving aurora clouds */}
+        {[...Array(4)].map((_, i) => (
+          <motion.div
+            key={`aurora-cloud-${i}`}
+            className="absolute rounded-full blur-3xl"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              width: `${150 + Math.random() * 200}px`,
+              height: `${150 + Math.random() * 200}px`,
+              background: i % 2 === 0
+                ? 'radial-gradient(ellipse, rgba(0,255,255,0.3) 0%, rgba(0,255,255,0) 70%)'
+                : 'radial-gradient(ellipse, rgba(255,0,255,0.3) 0%, rgba(255,0,255,0) 70%)',
+            }}
+            animate={{
+              x: [0, Math.random() * 300 - 150, Math.random() * 300 - 150, 0],
+              y: [0, Math.random() * 300 - 150, Math.random() * 300 - 150, 0],
+              scale: [1, 1.3, 0.9, 1],
+              opacity: [0.1, 0.4, 0.2, 0.1],
+            }}
+            transition={{
+              duration: 30 + Math.random() * 20,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: Math.random() * 10,
+            }}
+          />
+        ))}
+      </div>
+
       {/* Header Navigation */}
       <header className="relative z-20 px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
         <nav className="max-w-7xl mx-auto flex items-center justify-between">
@@ -176,47 +265,99 @@ const AlterixFinalHero: React.FC = () => {
           
           {/* Content with proper z-index */}
           <div className="relative z-40">
-            {/* Central Kinetic Light Visualization */}
+            {/* Horizontal Energy Wave Effect */}
             <div className="mb-12">
-              <div className="relative w-32 h-32 mx-auto">
-                {/* iOS-style glowing orb */}
+              <div className="relative w-full h-16 mx-auto overflow-hidden">
+                {/* Main flowing energy orb */}
                 <motion.div
                   animate={{ 
-                    scale: [1, 1.1, 1],
-                    opacity: [0.8, 1, 0.8]
+                    x: [-50, 50],
+                    opacity: [0.4, 1, 0.4]
                   }}
                   transition={{ 
-                    duration: 3, 
+                    duration: 4, 
                     repeat: Infinity, 
                     ease: "easeInOut" 
                   }}
                   className="absolute inset-0 flex items-center justify-center"
                 >
-                  <div className="w-24 h-24 bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 rounded-full blur-2xl opacity-80" />
-                  <div className="absolute w-12 h-12 bg-white rounded-full blur-sm" />
-                  <div className="absolute w-6 h-6 bg-blue-300 rounded-full" />
+                  {/* Central glowing orb */}
+                  <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 via-purple-500 to-magenta-500 rounded-full blur-xl opacity-90" />
+                  <div className="absolute w-6 h-6 bg-white rounded-full blur-sm" />
                 </motion.div>
                 
-                {/* Orbiting particles */}
-                {[...Array(6)].map((_, i) => (
+                {/* Floating circular energy particles */}
+                {[...Array(5)].map((_, i) => (
                   <motion.div
                     key={i}
-                    className="absolute w-2 h-2 bg-blue-400 rounded-full"
+                    className="absolute w-4 h-4 rounded-full"
                     style={{
-                      left: '50%',
                       top: '50%',
+                      left: `${15 + i * 17.5}%`,
+                      background: i % 2 === 0 
+                        ? 'radial-gradient(circle, rgba(0,255,255,0.8) 0%, rgba(0,255,255,0) 70%)' 
+                        : 'radial-gradient(circle, rgba(255,0,255,0.8) 0%, rgba(255,0,255,0) 70%)',
                     }}
                     animate={{
-                      transform: [
-                        `translate(-50%, -50%) rotate(${i * 60}deg) translateX(60px) rotate(-${i * 60}deg)`,
-                        `translate(-50%, -50%) rotate(${i * 60 + 360}deg) translateX(60px) rotate(-${i * 60 + 360}deg)`
-                      ]
+                      x: [-20, 20],
+                      opacity: [0.2, 0.8, 0.2],
+                      scale: [0.8, 1.3, 0.8],
                     }}
                     transition={{
-                      duration: 20,
+                      duration: 3,
                       repeat: Infinity,
-                      ease: "linear",
-                      delay: i * 0.5
+                      ease: "easeInOut",
+                      delay: i * 0.4,
+                    }}
+                  />
+                ))}
+                
+                {/* Gentle flowing orbs */}
+                {[...Array(3)].map((_, i) => (
+                  <motion.div
+                    key={`flow-${i}`}
+                    className="absolute w-6 h-6 rounded-full blur-lg"
+                    style={{
+                      top: `${40 + i * 10}%`,
+                      left: `${20 + i * 25}%`,
+                      background: i % 2 === 0
+                        ? 'radial-gradient(circle, rgba(0,255,255,0.4) 0%, rgba(0,255,255,0) 60%)'
+                        : 'radial-gradient(circle, rgba(255,0,255,0.4) 0%, rgba(255,0,255,0) 60%)',
+                    }}
+                    animate={{
+                      x: [-30, 30],
+                      opacity: [0, 0.6, 0],
+                      scale: [0.5, 1.2, 0.5],
+                    }}
+                    transition={{
+                      duration: 5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: i * 1.5,
+                    }}
+                  />
+                ))}
+                
+                {/* Small energy sparks */}
+                {[...Array(8)].map((_, i) => (
+                  <motion.div
+                    key={`spark-${i}`}
+                    className="absolute w-1.5 h-1.5 rounded-full"
+                    style={{
+                      top: `${30 + Math.random() * 40}%`,
+                      left: `${Math.random() * 100}%`,
+                      background: i % 3 === 0 ? '#00FFFF' : i % 3 === 1 ? '#FF00FF' : '#9333EA',
+                    }}
+                    animate={{
+                      x: [0, Math.random() * 40 - 20],
+                      opacity: [0, 0.7, 0],
+                      scale: [0, 1, 0],
+                    }}
+                    transition={{
+                      duration: 2.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: Math.random() * 1.5,
                     }}
                   />
                 ))}
@@ -230,10 +371,10 @@ const AlterixFinalHero: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6"
             >
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 bg-black/80 px-4 py-2 rounded-lg">
                 YOUR EDITING STYLE.
               </span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-400">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-400 bg-black/80 px-4 py-2 rounded-lg">
                 CLONED. PERFECTED. AUTOMATED.
               </span>
             </motion.h1>
@@ -324,7 +465,7 @@ const AlterixFinalHero: React.FC = () => {
             viewport={{ once: true }}
             className="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-8 sm:mb-12 lg:mb-16"
           >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-magenta-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-magenta-400 inline-block bg-black/80 px-4 py-2 rounded-lg">
               YOUR EDITING STYLE.
             </span>
           </motion.h2>
