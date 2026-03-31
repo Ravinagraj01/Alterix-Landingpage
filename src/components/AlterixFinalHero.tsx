@@ -175,10 +175,10 @@ const AlterixFinalHero: React.FC = () => {
               Who This Is For
             </a>
             <a
-              href="#waitlist-form"
+              href="#founders-note"
               className="text-gray-300 hover:text-white transition-colors duration-200 text-sm lg:text-base"
             >
-              Waitlist
+              Contact
             </a>
           </div>
           
@@ -846,7 +846,7 @@ const AlterixFinalHero: React.FC = () => {
                     <p>If you've felt the same, I'd love your honest input. This form takes 2 minutes, and your feedback will shape how we build this.</p>
                   </div>
                   <div className="mt-6">
-                    <a href="mailto:alterix.in@gmail.com" className="text-magenta-400 hover:text-magenta-300 transition-colors">Email: alterix.in@gmail.com</a>
+                    <a href="mailto:alterix.in@gmail.com" className="text-magenta-400 hover:text-magenta-300 transition-colors">Email: <span className="text-cyan-400 font-bold">alterix.in@gmail.com</span></a>
                   </div>
                 </div>
               </div>
