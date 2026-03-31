@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
         >
-          Upload your raw footage. We study how you edit. Then we do it for you — your cuts, your pacing, your vibe.
+          Upload your raw footage. The AI studies how you edit. Then does it for you — your cuts, your pacing, your vibe.
         </motion.p>
 
         {/* Timeline Scrubber Visual */}

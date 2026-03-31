@@ -8,19 +8,19 @@ const HowItWorks: React.FC = () => {
     {
       number: '①',
       title: 'Drop your past 3 videos',
-      description: 'We analyse your cuts, pacing, transitions, music timing',
+      description: 'The AI analyses your cuts, pacing, transitions, music timing',
       details: 'Our AI studies every frame, every cut, every transition. It learns your unique editing fingerprint - the way you time your cuts, how you build tension, where you place music beats, your signature color grading style.'
     },
     {
       number: '②',
       title: 'Upload your raw footage',
-      description: 'We build a first cut — in your style',
+      description: 'It builds a first cut — in your style',
       details: 'Raw footage goes in, your signature style comes out. We apply everything we learned from your past videos - your pacing, your transitions, your vibe. No generic templates, no one-size-fits-all edits.'
     },
     {
       number: '③',
       title: 'Review, tweak, export',
-      description: 'You\'re done in 30 mins instead of 8 hours',
+      description: 'You\'re done in 25 mins instead of hours',
       details: 'Fine-tune the details if you want, but most creators are shocked how close we get. Make minor adjustments, export in your preferred format, and upload. Your audience gets your signature content, you get your life back.'
     }
   ];

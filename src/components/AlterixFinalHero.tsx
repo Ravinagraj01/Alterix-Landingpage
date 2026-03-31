@@ -26,20 +26,20 @@ const AlterixFinalHero: React.FC = () => {
   const steps = [
     {
       number: '①',
-      title: 'Drop your past 3 videos',
-      description: 'We analyse your cuts, pacing, transitions, music timing',
+      title: 'Drop your past 3 videos link',
+      description: 'The AI analyses your cuts, pacing, transitions, music timing',
       details: 'Our AI studies every frame, every cut, every transition. It learns your unique editing fingerprint.'
     },
     {
       number: '②',
       title: 'Upload your raw footage',
-      description: 'We build a first cut — in your style',
+      description: 'The model build a first cut — in your style',
       details: 'Raw footage goes in, your signature style comes out. No generic templates.'
     },
     {
       number: '③',
       title: 'Review, tweak, export',
-      description: 'You\'re done in 30 mins instead of 8 hours',
+      description: 'You\'re done in 25 mins instead of hours',
       details: 'Fine-tune the details if you want, but most creators are shocked how close we get.'
     }
   ];
@@ -341,7 +341,7 @@ const AlterixFinalHero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 sm:mb-10 lg:mb-12 max-w-3xl mx-auto px-4"
             >
-              Upload your raw footage. We study how you edit. Then we do it for you — your cuts, your pacing, your vibe.
+              Upload your raw footage. The AI will study how you edit. Then it will do it for you — your cuts, your pacing, your vibe.
             </motion.p>
 
             {/* iOS-style CTA Button */}
@@ -667,7 +667,7 @@ const AlterixFinalHero: React.FC = () => {
                             transition={{ duration: 0.6, delay: 0.8 }}
                             className="text-cyan-300 text-sm leading-relaxed"
                           >
-                            <span className="font-semibold text-white">⏱️ 95% time saved</span> - what used to take 8 hours now takes 30 minutes.
+                            <span className="font-semibold text-white">⏱️ 95% time saved</span> - what used to take hours now takes 25 minutes.
                           </motion.p>
                         </>
                       )}
@@ -841,7 +841,7 @@ const AlterixFinalHero: React.FC = () => {
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold text-white mb-4">Hey — I'm Ravi</h3>
                   <div className="space-y-4 text-gray-300">
-                    <p>I edit videos too and I know how draining it is. Spending 8 hours on a 10-minute video, explaining my style to editors who don't get it, watching my creative energy die in the timeline.</p>
+                    <p>I edit videos too and I know how draining it is. Spending hours on a 10-minute video, explaining my style to editors who don't get it, watching my creative energy die in the timeline.</p>
                     <p>I'm building this because I couldn't find a tool that actually understood <span className="text-cyan-400 font-bold">my style</span>. Not generic templates, not one-size-fits-all cuts — but <span className="text-magenta-400 font-bold">my edit</span>.</p>
                     <p>If you've felt the same, I'd love your honest input. This form takes 2 minutes, and your feedback will shape how we build this.</p>
                   </div>

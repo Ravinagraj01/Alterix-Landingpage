@@ -46,7 +46,7 @@ const FoundersNote: React.FC = () => {
                 className="space-y-4 text-gray-300 leading-relaxed"
               >
                 <p>
-                  I edit videos too and I know how draining it is. Spending 8 hours on a 10-minute video, explaining my style to editors who don't get it, watching my creative energy die in the timeline.
+                  I edit videos too and I know how draining it is. Spending hours on a 10-minute video, explaining my style to editors who don't get it, watching my creative energy die in the timeline.
                 </p>
                 
                 <p>
